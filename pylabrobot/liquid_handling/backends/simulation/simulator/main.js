@@ -956,7 +956,7 @@ function openSocket() {
   path = path.replace(/\/+$/, '');
   // Construct the WebSocket URL using the hostname and path
   const websocketUrl = `wss://${hostname}${path}/websocketProxy`;
-  websocket = new WebSocket(websocketUrl);
+  webSocket = new WebSocket(websocketUrl);
 
   webSocket.onopen = function (event) {
     console.log("Connected to " + event.target.URL);

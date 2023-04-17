@@ -949,7 +949,14 @@ function openSocket() {
 
   socketLoading = true;
   updateStatusLabel("loading");
-  webSocket = new WebSocket(`ws://localhost:2121/`);
+
+  const currentUrl = new URL(window.location.href);
+  const hostname = currentUrl.hostname;
+  let path = currentUrl.pathname;
+  path = path.replace(/\/+$/, '');
+  // Construct the WebSocket URL using the hostname and path
+  const websocketUrl = `wss://${hostname}${path}/websocketProxy`;
+  websocket = new WebSocket(websocketUrl);
 
   webSocket.onopen = function (event) {
     console.log("Connected to " + event.target.URL);

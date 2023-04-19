@@ -56,7 +56,7 @@ class SimulatorBackend(WebSocketBackend):
     self,
     num_channels: int = 8,
     simulate_delay: bool = False,
-    ws_host: str = "127.0.0.1",
+    ws_host: str = "",
     ws_port: int = 2121,
     fs_host: str = "",
     fs_port: int = 1337,
